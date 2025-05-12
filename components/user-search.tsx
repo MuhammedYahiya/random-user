@@ -66,7 +66,7 @@ export default function UserSearch({ users, onSelectUser }: UserSearchProps) {
           <CommandList className="max-h-[300px] overflow-y-auto">
             <CommandEmpty>No users found</CommandEmpty>
             <CommandGroup>
-              {filteredUsers.slice(0, 10).map((user) => (
+              {filteredUsers.slice(0, 100).map((user) => (
                 <CommandItem
                   key={`${user.login.uuid}`}
                   onSelect={() => handleUserClick(user)}
@@ -87,11 +87,6 @@ export default function UserSearch({ users, onSelectUser }: UserSearchProps) {
                   </div>
                 </CommandItem>
               ))}
-              {filteredUsers.length > 10 && (
-                <div className="px-2 py-1.5 text-sm text-gray-500 text-center">
-                  + {filteredUsers.length - 10} more results
-                </div>
-              )}
             </CommandGroup>
           </CommandList>
         )}
